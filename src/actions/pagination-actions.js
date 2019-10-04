@@ -1,20 +1,9 @@
 import {
-  PAGINATION_REGISTERED,
   PAGINATION_SET_PARAMS,
-  PAGINATION_DEL_PARAMS
+  PAGINATION_DELETED
 } from "./constants";
 
-// TODO: change func name to registerPagination
-export const registerPag = ({ paginationName, options }) => ({
-  type: PAGINATION_REGISTERED,
-  payload: {
-    paginationName,
-    options
-  }
-});
-
-// TODO: change func name to setPaginationParams
-export const setParams = ({ paginationName, params }) => ({
+export const setPaginationPage = ({ paginationName, params }) => ({
   type: PAGINATION_SET_PARAMS,
   payload: {
     paginationName,
@@ -22,9 +11,8 @@ export const setParams = ({ paginationName, params }) => ({
   }
 });
 
-// TODO: change func name to deletePaginationParams
-export const deleteParams = ({ paginationName }) => ({
-  type: PAGINATION_DEL_PARAMS,
+export const deletePagination = ({ paginationName }) => ({
+  type: PAGINATION_DELETED,
   payload: {
     paginationName
   }

@@ -4,8 +4,8 @@ import queryString from "query-string";
 import styled from "styled-components";
 
 export const Pagination = props => {
-  const { count } = props;
-  if (count <= 1) return null;
+  const { totalPages } = props;
+  if (totalPages <= 1) return null;
 
   const { location, params, paramName = "page" } = props;
   const { pathname } = location;
@@ -24,7 +24,7 @@ export const Pagination = props => {
         Previous
       </PrevBtn>
 
-      {[...Array(count)].map((_, index) => (
+      {[...Array(totalPages)].map((_, index) => (
         <PageBtn
           key={index}
           as={currentPage === index + 1 && CurrentPage}
@@ -38,7 +38,7 @@ export const Pagination = props => {
       ))}
 
       <NextBtn
-        as={currentPage === count ? NotActiveBtn : Link}
+        as={currentPage === totalPages ? NotActiveBtn : Link}
         to={`${pathname}?${queryString.stringify({
           ...params,
           [paramName]: currentPage + 1

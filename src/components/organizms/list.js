@@ -1,5 +1,5 @@
 import React from "react";
-import { Lib } from "../../../components/atoms/lib";
+import { Lib } from "../atoms/lib";
 
 export const List = ({ list, isLoading }) => {
   if (isLoading)

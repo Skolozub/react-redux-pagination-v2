@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { List } from "../components/organizms/list";
 
-class ListContainer extends Component {
+export class ListContainer extends Component {
   // -----------------Methods-------------------
 
   fetchList = async params => axios.get("/people", { params });
@@ -26,7 +26,7 @@ class ListContainer extends Component {
 
   // ----------------Lifecycle------------------
 
-  componentDidUpdate = () => {
+  componentDidMount = () => {
     const { params } = this.props;
 
     this.loadData(params);
@@ -49,5 +49,3 @@ class ListContainer extends Component {
     <List list={this.state.list} isLoading={this.state.isLoading} />
   );
 }
-
-export default ListContainer;

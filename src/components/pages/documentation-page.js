@@ -4,7 +4,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Lib } from "../atoms/lib";
 
-export const Documentation = () => (
+export const DocumentationPage = () => (
   <Lib.PageWrapper>
     <Lib.H1>Документация</Lib.H1>
     <Lib.H2>Установка пагинации</Lib.H2>

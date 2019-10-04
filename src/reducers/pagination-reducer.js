@@ -1,41 +1,28 @@
 import {
-  PAGINATION_REGISTERED,
   PAGINATION_SET_PARAMS,
-  PAGINATION_DEL_PARAMS
+  PAGINATION_DELETED
 } from "../actions/constants";
 
 const initialState = {};
 
 export const paginationReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case PAGINATION_REGISTERED: {
-      return {
-        ...state,
-        [payload.paginationName]: {
-          params: {},
-          options: { ...payload.options }
-        }
-      };
-    }
-
     case PAGINATION_SET_PARAMS: {
       return {
         ...state,
         [payload.paginationName]: {
           ...state[payload.paginationName],
-          params: { ...payload.params }
+          [payload.params.paramName]: payload.params.paramValue
         }
       };
     }
 
-    case PAGINATION_DEL_PARAMS: {
-      return {
-        ...state,
-        [payload.paginationName]: {
-          ...state[payload.paginationName],
-          params: {}
-        }
-      };
+    case PAGINATION_DELETED: {
+      return Object.entries(state).reduce(
+        (acc, [key, value]) =>
+          key !== payload.paginationName ? { ...acc, [key]: value } : acc,
+        {}
+      );
     }
 
     default: {
