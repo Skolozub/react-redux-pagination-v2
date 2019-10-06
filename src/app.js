@@ -3,7 +3,7 @@ import axios from "axios";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { Menu } from "./components/organizms/menu";
 import { DocumentationPage } from "./components/pages/documentation-page";
-import {WithParamsListPage} from "./containers/pages/with-params-list-page";
+import {WithParamsListPage} from "./components/pages/with-params-list-page";
 
 axios.defaults.baseURL = "https://swapi.co/api";
 
